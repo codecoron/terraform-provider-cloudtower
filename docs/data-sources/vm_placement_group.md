@@ -17,6 +17,9 @@ CloudTower vm placement group data source.
 
 ### Optional
 
+- `cluster_id` (String) filter vm placement group by cluster id.
+- `cluster_id_in` (List of String) filter vm placement group by cluster id in list.
+- `enabled` (Boolean) filter vm placement group by enabled.
 - `name` (String) filter vm placement group by name.
 - `name_contains` (String) filter vm placement group by name contains.
 - `name_in` (List of String) filter vm placement group by name in list.
@@ -32,11 +35,52 @@ CloudTower vm placement group data source.
 Read-Only:
 
 - `cluster` (List of Object) (see [below for nested schema](#nestedobjatt--vm_placement_group--cluster))
+- `description` (String)
+- `enabled` (Boolean)
 - `id` (String)
+- `local_id` (String)
 - `name` (String)
+- `vm_host_must_enabled` (Boolean)
+- `vm_host_must_host_uuids` (List of Object) (see [below for nested schema](#nestedobjatt--vm_placement_group--vm_host_must_host_uuids))
+- `vm_host_must_policy` (Boolean)
+- `vm_host_prefer_enabled` (Boolean)
+- `vm_host_prefer_host_uuids` (List of Object) (see [below for nested schema](#nestedobjatt--vm_placement_group--vm_host_prefer_host_uuids))
+- `vm_host_prefer_policy` (Boolean)
+- `vm_vm_policy` (String)
+- `vm_vm_policy_enabled` (Boolean)
+- `vms` (List of Object) (see [below for nested schema](#nestedobjatt--vm_placement_group--vms))
 
 <a id="nestedobjatt--vm_placement_group--cluster"></a>
 ### Nested Schema for `vm_placement_group.cluster`
+
+Read-Only:
+
+- `id` (String)
+- `name` (String)
+
+
+<a id="nestedobjatt--vm_placement_group--vm_host_must_host_uuids"></a>
+### Nested Schema for `vm_placement_group.vm_host_must_host_uuids`
+
+Read-Only:
+
+- `id` (String)
+- `management_ip` (String)
+- `name` (String)
+
+
+<a id="nestedobjatt--vm_placement_group--vm_host_prefer_host_uuids"></a>
+### Nested Schema for `vm_placement_group.vm_host_prefer_host_uuids`
+
+Read-Only:
+
+- `id` (String)
+- `management_ip` (String)
+- `name` (String)
+
+
+<a id="nestedobjatt--vm_placement_group--vms"></a>
+### Nested Schema for `vm_placement_group.vms`
 
 Read-Only:
 

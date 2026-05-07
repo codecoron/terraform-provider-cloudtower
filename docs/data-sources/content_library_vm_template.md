@@ -43,10 +43,16 @@ Read-Only:
 
 Read-Only:
 
+- `clock_offset` (String)
 - `cluster` (String)
+- `cpu_cores` (Number)
+- `cpu_sockets` (Number)
 - `disks` (List of Object) (see [below for nested schema](#nestedobjatt--content_library_vm_templates--vm_templates--disks))
+- `firmware` (String)
 - `id` (String)
+- `memory` (Number)
 - `nics` (List of Object) (see [below for nested schema](#nestedobjatt--content_library_vm_templates--vm_templates--nics))
+- `win_opt` (Boolean)
 
 <a id="nestedobjatt--content_library_vm_templates--vm_templates--disks"></a>
 ### Nested Schema for `content_library_vm_templates.vm_templates.disks`
