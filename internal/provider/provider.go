@@ -71,6 +71,7 @@ func New(version string) func() *schema.Provider {
 			ResourcesMap: map[string]*schema.Resource{
 				"cloudtower_datacenter":                  resourceDatacenter(),
 				"cloudtower_cluster":                     resourceCluster(),
+				"cloudtower_vlan":                        resourceVlan(),
 				"cloudtower_vm":                          resourceVm(),
 				"cloudtower_vm_snapshot":                 resourceVmSnapshot(),
 				"cloudtower_vm_template":                 resourceVmTemplate(),
