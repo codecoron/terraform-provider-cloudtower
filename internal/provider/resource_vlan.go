@@ -36,6 +36,7 @@ func resourceVlan() *schema.Resource {
 			"vlan_id": {
 				Type:         schema.TypeInt,
 				Optional:     true,
+				Default:      0,
 				ValidateFunc: validation.IntBetween(0, 4095),
 				Description:  "VLAN ID (0-4095)",
 			},
@@ -63,13 +64,11 @@ func resourceVlanCreate(ctx context.Context, d *schema.ResourceData, meta interf
 	cvp := vlan.NewCreateVMVlanParams()
 	name := d.Get("name").(string)
 	vdsID := d.Get("vds_id").(string)
+	vid := models.VlanID(d.Get("vlan_id").(int))
 	params := &models.VMVlanCreationParams{
-		Name:  &name,
-		VdsID: &vdsID,
-	}
-	if vlanID, ok := d.GetOk("vlan_id"); ok {
-		vid := models.VlanID(vlanID.(int))
-		params.VlanID = &vid
+		Name:   &name,
+		VdsID:  &vdsID,
+		VlanID: &vid,
 	}
 	cvp.RequestBody = []*models.VMVlanCreationParams{params}
 	vlans, err := ct.Api.Vlan.CreateVMVlan(cvp)
